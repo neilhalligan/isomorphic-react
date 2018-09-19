@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "cross-env NODE_ENV=development  --useLiveData=true --useServerRender=true",
+    "build": "cross-env webpack -p --config ./webpack.config.prod.babel.js",
+    "start-prod": "npm run build && cross-env NODE_ENV=production babel-node server --useLiveData=true --useServerRender=true"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,40 @@
   "bugs": {
     "url": "https://github.com/danielstern/isomorphic-react/issues"
   },
-  "homepage": "https://github.com/danielstern/isomorphic-react#readme"
+  "homepage": "https://github.com/danielstern/isomorphic-react#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.2.0",
+    "eslint-plugin-react": "^7.10.0",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-regenerator-runtime": "^6.5.0",
+    "bootstrap": "^4.1.3",
+    "express": "^4.16.3",
+    "express-yields": "^1.1.2",
+    "fs-extra": "^7.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.10",
+    "optimist": "^0.6.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-markdown": "^3.4.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "webpack": "^4.16.4",
+    "webpack-dev-middleware": "^3.1.3",
+    "webpack-hot-middleware": "^2.22.3"
+  }
 }
